@@ -9,6 +9,14 @@ This project transforms daily stock price data into monthly summaries and calcul
 
 ## Installation
 ```bash
+# Clone the repository
+git clone https://github.com/LokeshwariVarshney29/stock-monthly-aggregation.git
+cd stock-monthly-aggregation
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Or install pandas directly
 pip install pandas
 ```
 
@@ -169,13 +177,13 @@ The code follows a modular design with clear separation of concerns:
 - Provides progress feedback
 
 ## Project Structure
-
 ```
-stock-aggregation-project/
-├── stock_aggregator.py       # Main script
-├── output_file.csv           # Input data (download from repo)
+stock-monthly-aggregation/
+├── .gitignore                # Git ignore rules
 ├── README.md                 # This file
-└── output/                   # Generated output directory
+├── requirements.txt          # Python dependencies
+├── stock_aggregator.py       # Main script
+└── output/                   # Generated output files (included for review)
     ├── result_AAPL.csv
     ├── result_AMD.csv
     ├── result_AMZN.csv
@@ -187,6 +195,8 @@ stock-aggregation-project/
     ├── result_TMUS.csv
     └── result_TSLA.csv
 ```
+
+**Note**: The `output_file.csv` input data is downloaded separately and not included in the repository.
 
 ## Assumptions
 
@@ -243,6 +253,20 @@ The `output/` directory contains:
 - 10 CSV files (one per stock ticker)
 - Each file has exactly 24 rows (24 months of data)
 - All files follow the naming convention: `result_{TICKER}.csv`
+
+## Sample Output
+
+### Example: result_AAPL.csv (first 5 rows)
+```csv
+date,ticker,open,high,low,close,volume,SMA_10,SMA_20,EMA_10,EMA_20
+2018-01-31,AAPL,167.25,171.51,165.53,167.43,1250000000,167.43,167.43,167.43,167.43
+2018-02-28,AAPL,175.26,178.61,170.16,175.00,1180000000,171.22,171.22,172.24,172.07
+2018-03-31,AAPL,173.68,175.15,164.94,168.34,1090000000,170.26,170.26,169.69,170.42
+2018-04-30,AAPL,165.72,168.55,162.31,165.26,1050000000,169.01,169.01,167.89,168.85
+2018-05-31,AAPL,169.10,171.85,168.21,171.06,980000000,169.42,169.42,169.15,169.64
+```
+
+All 10 output files follow this same structure with 24 rows each.
 
 ## Validation Checklist
 
