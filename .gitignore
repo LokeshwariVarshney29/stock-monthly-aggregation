@@ -1,8 +1,5 @@
-# Data files - Input and Output
-*.csv
+# Input data file (users download this separately)
 output_file.csv
-output/
-!sample_output/
 
 # Python cache
 __pycache__/
