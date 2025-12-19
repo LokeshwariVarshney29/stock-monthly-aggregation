@@ -233,17 +233,16 @@ stock-aggregation-project/
 - **Error handling**: Directory creation with `os.makedirs(exist_ok=True)`
 - **Logging**: Progress messages to track processing status
 
-## Example Output
+## Output Files (Included for Review)
 
-### Sample `result_AAPL.csv`:
-```csv
-date,ticker,open,high,low,close,volume,SMA_10,SMA_20,EMA_10,EMA_20
-2018-01-31,AAPL,167.25,171.51,165.53,167.43,1250000000,167.43,167.43,167.43,167.43
-2018-02-28,AAPL,175.26,178.61,170.16,175.00,1180000000,171.22,171.22,172.24,172.07
-2018-03-31,AAPL,173.68,175.15,164.94,168.34,1090000000,170.26,170.26,169.69,170.42
-...
-2019-12-31,AAPL,289.93,293.97,284.27,293.65,920000000,275.45,268.32,281.23,272.18
-```
+For your convenience, this repository includes the generated output files in the `output/` directory. 
+
+**Note**: Normally, generated files would not be included in version control. They are included here solely for assignment review purposes.
+
+The `output/` directory contains:
+- 10 CSV files (one per stock ticker)
+- Each file has exactly 24 rows (24 months of data)
+- All files follow the naming convention: `result_{TICKER}.csv`
 
 ## Validation Checklist
 
@@ -269,23 +268,6 @@ For AAPL in January 2018:
 3. Verify "High" is the maximum daily high for all of January
 4. Verify "Low" is the minimum daily low for all of January
 5. Calculate SMA_10 manually for the 10th month and compare
-
-## Troubleshooting
-
-### Issue: "File not found" error
-**Solution**: Ensure `output_file.csv` is in the same directory as `stock_aggregator.py`
-
-### Issue: "ModuleNotFoundError: No module named 'pandas'"
-**Solution**: Install pandas using `pip install pandas`
-
-### Issue: Output files have wrong number of rows
-**Solution**: Check that input data covers exactly 2 years (24 months)
-
-### Issue: Dates are not parsing correctly
-**Solution**: The code uses `pd.to_datetime()` which handles most date formats automatically
-
-### Issue: Permission denied when creating output directory
-**Solution**: Ensure you have write permissions in the project directory
 
 ## References
 
